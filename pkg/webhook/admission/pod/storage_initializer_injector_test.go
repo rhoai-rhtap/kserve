@@ -39,7 +39,6 @@ const (
 	StorageInitializerDefaultCPULimit                   = "1"
 	StorageInitializerDefaultMemoryRequest              = "200Mi"
 	StorageInitializerDefaultMemoryLimit                = "1Gi"
-	StorageInitializerDefaultStorageSpecSecretName      = "storage-config"
 	StorageInitializerDefaultEnableDirectPvcVolumeMount = false
 )
 
@@ -49,7 +48,6 @@ var (
 		CpuLimit:                   StorageInitializerDefaultCPULimit,
 		MemoryRequest:              StorageInitializerDefaultMemoryRequest,
 		MemoryLimit:                StorageInitializerDefaultMemoryLimit,
-		StorageSpecSecretName:      StorageInitializerDefaultStorageSpecSecretName,
 		EnableDirectPvcVolumeMount: StorageInitializerDefaultEnableDirectPvcVolumeMount,
 	}
 
@@ -370,7 +368,7 @@ func TestStorageInitializerInjector(t *testing.T) {
 
 	for name, scenario := range scenarios {
 		injector := &StorageInitializerInjector{
-			credentialBuilder: credentials.NewCredentialBulder(c, &v1.ConfigMap{
+			credentialBuilder: credentials.NewCredentialBuilder(c, &v1.ConfigMap{
 				Data: map[string]string{},
 			}),
 			config: storageInitializerConfig,
@@ -410,7 +408,7 @@ func TestStorageInitializerFailureCases(t *testing.T) {
 
 	for name, scenario := range scenarios {
 		injector := &StorageInitializerInjector{
-			credentialBuilder: credentials.NewCredentialBulder(c, &v1.ConfigMap{
+			credentialBuilder: credentials.NewCredentialBuilder(c, &v1.ConfigMap{
 				Data: map[string]string{},
 			}),
 			config: storageInitializerConfig,
@@ -550,7 +548,7 @@ func TestStorageInitializerInjectorUIDHandling(t *testing.T) {
 
 	for name, scenario := range scenarios {
 		injector := &StorageInitializerInjector{
-			credentialBuilder: credentials.NewCredentialBulder(c, &v1.ConfigMap{
+			credentialBuilder: credentials.NewCredentialBuilder(c, &v1.ConfigMap{
 				Data: map[string]string{},
 			}),
 			config: storageInitializerConfig,
@@ -648,7 +646,7 @@ func TestCustomSpecStorageUriInjection(t *testing.T) {
 
 	for name, scenario := range scenarios {
 		injector := &StorageInitializerInjector{
-			credentialBuilder: credentials.NewCredentialBulder(c, &v1.ConfigMap{
+			credentialBuilder: credentials.NewCredentialBuilder(c, &v1.ConfigMap{
 				Data: map[string]string{},
 			}),
 			config: storageInitializerConfig,
@@ -1107,7 +1105,7 @@ func TestCredentialInjection(t *testing.T) {
 		},
 	}
 
-	builder := credentials.NewCredentialBulder(c, configMap)
+	builder := credentials.NewCredentialBuilder(c, configMap)
 	for name, scenario := range scenarios {
 		g.Expect(c.Create(context.TODO(), scenario.sa)).NotTo(gomega.HaveOccurred())
 		g.Expect(c.Create(context.TODO(), scenario.secret)).NotTo(gomega.HaveOccurred())
@@ -1170,7 +1168,7 @@ func TestStorageInitializerConfigmap(t *testing.T) {
 					InitContainers: []v1.Container{
 						{
 							Name:                     "storage-initializer",
-							Image:                    "kfserving/storage-initializer@sha256:xxx",
+							Image:                    "kserve/storage-initializer@sha256:xxx",
 							Args:                     []string{"gs://foo", constants.DefaultModelLocalMountPath},
 							Resources:                resourceRequirement,
 							TerminationMessagePolicy: "FallbackToLogsOnError",
@@ -1200,16 +1198,15 @@ func TestStorageInitializerConfigmap(t *testing.T) {
 
 	for name, scenario := range scenarios {
 		injector := &StorageInitializerInjector{
-			credentialBuilder: credentials.NewCredentialBulder(c, &v1.ConfigMap{
+			credentialBuilder: credentials.NewCredentialBuilder(c, &v1.ConfigMap{
 				Data: map[string]string{},
 			}),
 			config: &StorageInitializerConfig{
-				Image:                 "kfserving/storage-initializer@sha256:xxx",
-				CpuRequest:            StorageInitializerDefaultCPURequest,
-				CpuLimit:              StorageInitializerDefaultCPULimit,
-				MemoryRequest:         StorageInitializerDefaultMemoryRequest,
-				MemoryLimit:           StorageInitializerDefaultMemoryLimit,
-				StorageSpecSecretName: StorageInitializerDefaultStorageSpecSecretName,
+				Image:         "kserve/storage-initializer@sha256:xxx",
+				CpuRequest:    StorageInitializerDefaultCPURequest,
+				CpuLimit:      StorageInitializerDefaultCPULimit,
+				MemoryRequest: StorageInitializerDefaultMemoryRequest,
+				MemoryLimit:   StorageInitializerDefaultMemoryLimit,
 			},
 		}
 		if err := injector.InjectStorageInitializer(scenario.original, targetNS); err != nil {
@@ -1235,24 +1232,22 @@ func TestGetStorageInitializerConfigs(t *testing.T) {
 				ObjectMeta: metav1.ObjectMeta{},
 				Data: map[string]string{
 					StorageInitializerConfigMapKeyName: `{
-						"Image":        		 "gcr.io/kfserving/storage-initializer:latest",
+						"Image":        		 "gcr.io/kserve/storage-initializer:latest",
 						"CpuRequest":   		 "100m",
 						"CpuLimit":      		 "1",
 						"MemoryRequest": 		 "200Mi",
-						"MemoryLimit":   		 "1Gi",
-						"StorageSpecSecretName": "storage-secret"
+						"MemoryLimit":   		 "1Gi"
 					}`,
 				},
 				BinaryData: map[string][]byte{},
 			},
 			matchers: []types.GomegaMatcher{
 				gomega.Equal(&StorageInitializerConfig{
-					Image:                 "gcr.io/kfserving/storage-initializer:latest",
-					CpuRequest:            "100m",
-					CpuLimit:              "1",
-					MemoryRequest:         "200Mi",
-					MemoryLimit:           "1Gi",
-					StorageSpecSecretName: "storage-secret",
+					Image:         "gcr.io/kserve/storage-initializer:latest",
+					CpuRequest:    "100m",
+					CpuLimit:      "1",
+					MemoryRequest: "200Mi",
+					MemoryLimit:   "1Gi",
 				}),
 				gomega.BeNil(),
 			},
@@ -1264,24 +1259,22 @@ func TestGetStorageInitializerConfigs(t *testing.T) {
 				ObjectMeta: metav1.ObjectMeta{},
 				Data: map[string]string{
 					StorageInitializerConfigMapKeyName: `{
-						"Image":        		 "gcr.io/kfserving/storage-initializer:latest",
+						"Image":        		 "gcr.io/kserve/storage-initializer:latest",
 						"CpuRequest":   		 "100m",
 						"CpuLimit":      		 "1",
 						"MemoryRequest": 		 "200MC",
-						"MemoryLimit":   		 "1Gi",
-						"StorageSpecSecretName": "storage-secret"
+						"MemoryLimit":   		 "1Gi"
 					}`,
 				},
 				BinaryData: map[string][]byte{},
 			},
 			matchers: []types.GomegaMatcher{
 				gomega.Equal(&StorageInitializerConfig{
-					Image:                 "gcr.io/kfserving/storage-initializer:latest",
-					CpuRequest:            "100m",
-					CpuLimit:              "1",
-					MemoryRequest:         "200MC",
-					MemoryLimit:           "1Gi",
-					StorageSpecSecretName: "storage-secret",
+					Image:         "gcr.io/kserve/storage-initializer:latest",
+					CpuRequest:    "100m",
+					CpuLimit:      "1",
+					MemoryRequest: "200MC",
+					MemoryLimit:   "1Gi",
 				}),
 				gomega.HaveOccurred(),
 			},
@@ -1440,7 +1433,7 @@ func TestDirectVolumeMountForPvc(t *testing.T) {
 
 	for name, scenario := range scenarios {
 		injector := &StorageInitializerInjector{
-			credentialBuilder: credentials.NewCredentialBulder(c, &v1.ConfigMap{
+			credentialBuilder: credentials.NewCredentialBuilder(c, &v1.ConfigMap{
 				Data: map[string]string{},
 			}),
 			config: &StorageInitializerConfig{
@@ -1770,7 +1763,7 @@ func TestTransformerCollocation(t *testing.T) {
 
 	for name, scenario := range scenarios {
 		injector := &StorageInitializerInjector{
-			credentialBuilder: credentials.NewCredentialBulder(c, &v1.ConfigMap{
+			credentialBuilder: credentials.NewCredentialBuilder(c, &v1.ConfigMap{
 				Data: map[string]string{},
 			}),
 			config: scenario.storageConfig,
