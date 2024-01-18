@@ -7,7 +7,7 @@ on:
       - master
 
   # Run tests for any PRs.
-  pull_request:
+  #pull_request:
 
 env:
   IMAGE_NAME: image-transformer
@@ -132,4 +132,3 @@ jobs:
 
           docker tag $GRPC_IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-
