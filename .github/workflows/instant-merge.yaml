@@ -18,6 +18,12 @@ jobs:
   instant-merge:
     runs-on: ubuntu-latest
     steps:
+      - id: poc
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo ${{ github.event.sender.id }}
+          echo ${{ github.event.sender.login }}
       - name: instant-merge
         if: ${{ github.event.sender.login == 'red-hat-konflux' && startsWith(github.event.pull_request.title, 'Update kserve-') }}
         env:
