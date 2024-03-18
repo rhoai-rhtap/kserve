@@ -4,6 +4,8 @@ on:
   pull_request:
     types:
       - opened
+      - assigned
+      - reopened
     paths:
       - config/overlays/odh/params.env
 
