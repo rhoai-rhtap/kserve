@@ -15,6 +15,7 @@ metadata:
     pipelines.appstudio.openshift.io/type: build
   name: kserve-qpext-on-push
   namespace: riprasad-tenant
+# test
 spec:
   params:
   - name: dockerfile
