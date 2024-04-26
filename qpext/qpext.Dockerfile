@@ -14,6 +14,7 @@ COPY logger.go logger.go
 # Build
 RUN CGO_ENABLED=0 go build -a -o qpext ./cmd/qpext
 
+# test
 FROM gcr.io/distroless/static:nonroot
 WORKDIR /ko-app
 COPY --from=builder /go/src/github.com/kserve/kserve/qpext /ko-app/
