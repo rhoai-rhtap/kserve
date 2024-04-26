@@ -1,6 +1,8 @@
 # Build the inference qpext binary
 FROM golang:1.21 as builder
 
+LABEL test=123
+
 # Copy in the go src
 WORKDIR /go/src/github.com/kserve/kserve/qpext
 COPY go.mod  go.mod
@@ -14,7 +16,7 @@ COPY logger.go logger.go
 # Build
 RUN CGO_ENABLED=0 go build -a -o qpext ./cmd/qpext
 
-# test
+
 FROM gcr.io/distroless/static:nonroot
 WORKDIR /ko-app
 COPY --from=builder /go/src/github.com/kserve/kserve/qpext /ko-app/
