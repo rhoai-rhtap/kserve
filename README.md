@@ -51,5 +51,3 @@ KServe is an important addon component of Kubeflow, please learn more from the [
 ### :writing_hand: [Contributor Guide](./CONTRIBUTING.md)
 
 ### :handshake: [Adopters](https://kserve.github.io/website/master/community/adopters/)
-
-## test
