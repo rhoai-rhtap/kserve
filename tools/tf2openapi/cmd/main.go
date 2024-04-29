@@ -12,7 +12,6 @@ import (
 )
 
 // Known error messages
-// test
 const (
 	ModelBasePathError    = "Error reading file %s \n%s"
 	OutputFilePathError   = "Failed writing to %s: %s"
@@ -92,7 +91,8 @@ func viewAPI(cmd *cobra.Command, args []string) {
 	}
 }
 
-/**
+/*
+*
 Raises errors when model is missing fields that would pose an issue for Schema generation
 */
 func unmarshalSavedModelPb(modelPb []byte) *pb.SavedModel {
