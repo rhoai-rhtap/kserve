@@ -1,7 +1,7 @@
 # Tf2OpenAPI
 This tool takes TensorFlow SavedModel files as inputs and generates OpenAPI 3.0 specifications for HTTP prediction requests. The SavedModel files must contain signature definitions (SignatureDefs) for models.
 
-## Usage
+## Usage  
 ```
 Usage:
   tf2openapi [flags]
