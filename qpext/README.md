@@ -195,4 +195,3 @@ Next, cURL the port to see the metrics output.
 ```shell
 curl localhost:9088
 ```
-
