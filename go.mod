@@ -131,7 +131,7 @@ require (
 
 replace (
 	// Fixes CVE-2020-28466, CVE-2020-26521, CVE-2022-42709
-	github.com/nats-io/nats-server/v2 => github.com/nats-io/nats-server/v2 v2.9.23
+	github.com/nats-io/nats-server/v2 => github.com/nats-io/nats-server/v2 v2.10.26
 	// Fixes CVE-2023-46129
 	github.com/nats-io/nkeys => github.com/nats-io/nkeys v0.4.7
 	// Fixes CVE-2022-21698 and CVE-2023-45142
