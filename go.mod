@@ -9,7 +9,7 @@ require (
 	github.com/fsnotify/fsnotify v1.6.0
 	github.com/getkin/kin-openapi v0.116.0
 	github.com/go-logr/logr v1.2.4
-	github.com/gofrs/uuid/v5 v5.0.0
+	github.com/gofrs/uuid/v5 v5.3.1
 	github.com/gogo/protobuf v1.3.2
 	github.com/golang/protobuf v1.5.3
 	github.com/google/go-cmp v0.6.0
