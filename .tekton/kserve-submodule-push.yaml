@@ -26,6 +26,8 @@ spec:
     value: quay.io/redhat-user-workloads/rhoai-tenant/kserve-submodule:{{revision}}
   - name: dockerfile
     value: Dockerfiles/agent.Dockerfile.konflux
+  - name: path-context
+    value: midstream-sources
   pipelineSpec:
     description: |
       This pipeline is ideal for building container images from a Containerfile while maintaining trust after pipeline customization.
