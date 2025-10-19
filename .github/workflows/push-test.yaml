@@ -1,0 +1,16 @@
+name: Push Test for Submodule
+run-name: Push Test for Submodule
+on:
+  push:
+    paths:
+      - midstream-sources/Dockefile
+
+jobs:
+  process-fbc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Current branch name
+        shell: bash
+        id: get_branch
+        run": |
+          echo "triggered!!"

@@ -8,7 +8,7 @@ metadata:
     pipelinesascode.tekton.dev/cancel-in-progress: "false"
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch
-      == "rhoai-2.25" && "midstream-sources/Dockerfile".pathChanged()
+      == "rhoai-2.25" && "midstream-sources".pathChanged()
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: test
