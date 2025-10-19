@@ -1,4 +1,4 @@
 [submodule "midstream-sources"]
 	path = midstream-sources
-	url = git@github.com:rhoai-rhtap/kserve-submodule.git
+	url = https://github.com/rhoai-rhtap/kserve-submodule.git
 	branch = rhoai-2.25
