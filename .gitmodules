@@ -1,4 +1,0 @@
-[submodule ".tekton"]
-	path = .tekton
-	url = https://github.com/rhoai-rhtap/kserve.git
-	branch = tektons
