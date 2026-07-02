@@ -19,7 +19,7 @@ setup(
     packages=find_packages("bert_transformer"),
     install_requires=[
         f"kserve>={version}",
-        "tensorflow==2.7.2",
+        "tensorflow==2.21.0",
     ],
     tests_require=tests_require,
     extras_require={'test': tests_require}
