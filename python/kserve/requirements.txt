@@ -290,9 +290,9 @@ charset-normalizer==3.1.0 \
 click==8.1.3 \
     --hash=sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48 \
     --hash=sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e
-cloudevents==1.9.0 \
-    --hash=sha256:1011459d56d8f0184a46456f5d72632a2565f18171e51b33e06f643e723d30c9 \
-    --hash=sha256:8beb27503f97e215f886f73c17671012e96bb6268137fb3b2f9ef552727ab5b1
+cloudevents==1.13.0 \
+    --hash=sha256:ba01fb257b472c6222fea78ed8bea0fd7a3b0b0fb994cfd677d33a2d53388ccb \
+    --hash=sha256:c4b9ea89f1bb6e2090c8de740870d3c96809181ef691843cb672632afcae039b
 colorama==0.4.6; (platform_system == "Windows") or (platform_system == "Windows") or (sys_platform == "win32") \
     --hash=sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6 \
     --hash=sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44
