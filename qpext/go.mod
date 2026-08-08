@@ -1,6 +1,6 @@
 module github.com/kserve/kserve/qpext
 
-go 1.20
+go 1.21
 
 require (
 	github.com/hashicorp/go-multierror v1.1.1
@@ -23,7 +23,7 @@ require (
 	github.com/evanphx/json-patch/v5 v5.6.0 // indirect
 	github.com/go-kit/log v0.2.1 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
-	github.com/go-logr/logr v1.2.4 // indirect
+	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
@@ -69,7 +69,7 @@ require (
 	k8s.io/api v0.27.1 // indirect
 	k8s.io/apimachinery v0.27.1 // indirect
 	k8s.io/client-go v0.27.1 // indirect
-	k8s.io/klog/v2 v2.100.1 // indirect
+	k8s.io/klog/v2 v2.140.0 // indirect
 	k8s.io/utils v0.0.0-20230505201702-9f6742963106 // indirect
 	knative.dev/control-protocol v0.0.0-20230501014357-da93cf1acdb9 // indirect
 	knative.dev/networking v0.0.0-20230511122402-33636d99d870 // indirect
