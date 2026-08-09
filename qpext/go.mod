@@ -1,6 +1,6 @@
 module github.com/kserve/kserve/qpext
 
-go 1.20
+go 1.25.0
 
 require (
 	github.com/hashicorp/go-multierror v1.1.1
@@ -56,7 +56,7 @@ require (
 	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/term v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
-	golang.org/x/time v0.3.0 // indirect
+	golang.org/x/time v0.15.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.2.0 // indirect
 	google.golang.org/api v0.122.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
