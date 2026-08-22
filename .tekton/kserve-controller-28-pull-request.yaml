@@ -311,7 +311,7 @@ spec:
         - name: name
           value: sast-snyk-check
         - name: bundle
-          value: quay.io/redhat-appstudio-tekton-catalog/task-sast-snyk-check:0.1@sha256:fa722fdf4b82e5e856a2a43227262762c40070746d97c2b36c130870802ed0e3
+          value: quay.io/redhat-appstudio-tekton-catalog/task-sast-snyk-check:0.1@sha256:41eaa34c413a924e504033756a8a06454f45791cdbb8b8a5803c4475df5e5962
         - name: kind
           value: task
         resolver: bundles
