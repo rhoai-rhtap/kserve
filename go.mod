@@ -30,10 +30,10 @@ require (
 	google.golang.org/protobuf v1.32.0
 	istio.io/api v0.0.0-20200715212100-dbf5277541ef
 	istio.io/client-go v0.0.0-20201005161859-d8818315d678
-	k8s.io/api v0.27.6
-	k8s.io/apimachinery v0.27.6
-	k8s.io/client-go v0.27.6
-	k8s.io/code-generator v0.27.6
+	k8s.io/api v0.37.0
+	k8s.io/apimachinery v0.37.0
+	k8s.io/client-go v0.37.0
+	k8s.io/code-generator v0.37.0
 	k8s.io/klog v1.0.0
 	k8s.io/kube-openapi v0.0.0-20230515203736-54b630e78af5
 	knative.dev/networking v0.0.0-20231017124814-2a7676e912b7
@@ -128,8 +128,8 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	istio.io/gogo-genproto v0.0.0-20190930162913-45029607206a // indirect
-	k8s.io/apiextensions-apiserver v0.27.6 // indirect
-	k8s.io/component-base v0.27.6 // indirect
+	k8s.io/apiextensions-apiserver v0.37.0 // indirect
+	k8s.io/component-base v0.37.0 // indirect
 	k8s.io/gengo v0.0.0-20221011193443-fad74ee6edd9 // indirect
 	k8s.io/klog/v2 v2.100.1 // indirect
 	k8s.io/utils v0.0.0-20230505201702-9f6742963106 // indirect
@@ -150,11 +150,11 @@ replace (
 	golang.org/x/crypto => golang.org/x/crypto v0.17.0
 
 	// pin to 0.26.4 to avoid https://github.com/kubernetes-sigs/controller-runtime/issues/2302
-	k8s.io/api => k8s.io/api v0.26.4
+	k8s.io/api => k8s.io/api v0.37.0
 
 	// Fixes github.com/elazarl/goproxy Denial of Service (DoS), the dependency was removed in v0.27.0
 	// Remove below when upgrading to controller-runtime 0.15.x or apimachinery to 0.27.x
-	k8s.io/apimachinery => k8s.io/apimachinery v0.27.0
-	k8s.io/client-go => k8s.io/client-go v0.26.4
-	k8s.io/code-generator => k8s.io/code-generator v0.26.4
+	k8s.io/apimachinery => k8s.io/apimachinery v0.37.0
+	k8s.io/client-go => k8s.io/client-go v0.37.0
+	k8s.io/code-generator => k8s.io/code-generator v0.37.0
 )
