@@ -5,7 +5,7 @@ go 1.20
 require (
 	cloud.google.com/go/storage v1.33.0
 	github.com/aws/aws-sdk-go v1.44.264
-	github.com/cloudevents/sdk-go v1.2.0
+	github.com/cloudevents/sdk-go/v2 v2.16.2
 	github.com/fsnotify/fsnotify v1.6.0
 	github.com/getkin/kin-openapi v0.116.0
 	github.com/go-logr/logr v1.2.4
